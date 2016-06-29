@@ -19,7 +19,7 @@
         <property name="shouldStopConnections" value="true"/>
     </bean>
 
-    <bean id="jmsMessagePublisher" class="nz.co.acc.myacc.common.jms.JmsQueuePublisher">
+    <bean id="jmsMessagePublisher" class="com.davinvicky.common.jms.JmsQueuePublisher">
         <constructor-arg name="queueConnectionFactory" ref="cachedMfpJmsConnectionFactory"/>
         <constructor-arg name="dest" ref="cachedMfpSubmitQueue"/>
     </bean>

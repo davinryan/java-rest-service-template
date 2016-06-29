@@ -9,17 +9,17 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <aop:aspectj-autoproxy/>
-    <bean id="logServiceCallWithMDC" class="nz.co.acc.myacc.common.logging.LogServiceCallWithMDCAspect"/>
+    <bean id="logServiceCallWithMDC" class="com.davinvicky.common.logging.LogServiceCallWithMDCAspect"/>
 
     <bean id="jsonMapper"
-          class="nz.co.acc.myacc.services.invoicing.util.JsonObjectMapper">
+          class="com.davinvicky.service.util.JsonObjectMapper">
     </bean>
 
     <bean id="oracleXmlHandler"
           class="org.springframework.data.jdbc.support.oracle.OracleXmlHandler"/>
 
     <bean id="xmlMapper"
-          class="nz.co.acc.myacc.services.invoicing.util.XmlObjectMapper">
+          class="com.davinvicky.service.util.XmlObjectMapper">
     </bean>
 
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">

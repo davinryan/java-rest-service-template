@@ -6,8 +6,8 @@
         </Console>
 
         <RollingFile name="Portlet"
-                     fileName="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-portlet.log"
-                     filePattern="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-portlet-%d{MM-dd-yyyy}-%i.log.gz"
+                     fileName="/opt/appsrv/profiles/node/logs/front-end.log"
+                     filePattern="/opt/appsrv/profiles/node/logs/front-end-%d{MM-dd-yyyy}-%i.log.gz"
                      immediateFlush="true"
                      append="true">
             <PatternLayout>
@@ -21,8 +21,8 @@
         </RollingFile>
 
         <RollingFile name="Service"
-                     fileName="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-service.log"
-                     filePattern="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-service-%d{MM-dd-yyyy}-%i.log.gz"
+                     fileName="/opt/appsrv/profiles/node/logs/service.log"
+                     filePattern="/opt/appsrv/profiles/node/logs/service-%d{MM-dd-yyyy}-%i.log.gz"
                      immediateFlush="true"
                      append="true">
             <PatternLayout>

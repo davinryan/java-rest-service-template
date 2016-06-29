@@ -299,29 +299,6 @@
                     </configuration>
                 </plugin>
 
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.7</version>
-                    <executions>
-                        <execution>
-                            <id>copy-resources</id>
-                            <phase>prepare-package</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <overwrite>true</overwrite>
-                                <outputDirectory>${basedir}/target/classes/META-INF/services</outputDirectory>
-                                <resources>
-                                    <resource>
-                                        <directory>src/main/resources/IBM-META-INF/services</directory>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
                     <!-- Ignore/Execute plugin execution in m2e environment -->
                     <plugin>
                         <artifactId>maven-release-plugin</artifactId>

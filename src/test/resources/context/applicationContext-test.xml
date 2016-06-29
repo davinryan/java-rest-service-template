@@ -6,14 +6,14 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="jsonMapper"
-          class="nz.co.acc.myacc.services.invoicing.util.JsonObjectMapper">
+          class="com.davinvicky.service.util.JsonObjectMapper">
     </bean>
 
     <bean id="oracleXmlHandler"
-          class="nz.co.acc.myacc.services.test.util.mock.MockOracleXmlHandler"/>
+          class="com.davinvicky.service.test.util.mock.MockOracleXmlHandler"/>
 
     <bean id="xmlMapper"
-          class="nz.co.acc.myacc.services.invoicing.util.XmlObjectMapper">
+          class="com.davinvicky.service.util.XmlObjectMapper">
     </bean>
 
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
@@ -36,7 +36,4 @@
             </list>
         </property>
     </bean>
-
-    <!-- Swagger bean for custom configuration. -->
-    <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig"/>
 </beans>

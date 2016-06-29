@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Name:              eForm_Document_Information_SubSchema
+    Description:     This XML defines the document information details for an eForm XML messages. 
+    				    			
+    Schema Name:	eFormDocument				 
+    Version:        		1.0
+    Version Created:	9 August 2002
+    
+    Schema Name:	eFormDocument20030722				 
+    Version:        		1.2
+    Version Created:	22 July 2003
+    Change:			A testing problem with using namespace. Remove xmlns="http://www1.acc.co.nz/namespace"  reference from xsd schema.
+
+    Schema Name:	eFormDocument20030901				 
+    Version:        		1.3
+    Version Created:	01 September 2003
+    Change:			The problems of 22 July with namespace were resolved but did not solve all problems very cleanly. 
+    					To this end, a review of namespace usage was investigated and a solution developed.
+    					The solution changes the way in which namespaces are addressed internally and externally and makes it much tidier.
+    					The structure of the library has also changed to bring all directories in at the same structure level to accommodate type libraries.
+					There is no actual change to this sub-schema but if a data type was required it would need to reference the data type namespace
+    					ie. xmlns:xmldt="http://xmlschema.acc.co.nz/"
+
+    
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="eFormDocument">
+		<xsd:annotation>
+			<xsd:documentation>e-form defines some data about the document being received</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>A complex type defining the data e-schedule wishes to attach to a document transmission</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="document_reference" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>An input document reference from the channel. Probably optional. Format VA20</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="20"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="document_date" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The date the document was created sourced from the  Clock. Format Date</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="document_time" type="xsd:time" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The time the document was created sourced from the  Clock.  Format Time</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="document_source_app_version" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>As the file is retrieved it may be necessary to include the source application software version in the xml file for reference.  Format VA30</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Name:              ACC_Contract_SubSchema
+    Description:     This XML defines the ACC Contract details for an eForm XML messages. 
+    				    			
+    Schema Name:	eFormContract				 
+    Version:        		1.0
+    Version Created:	9 August 2002
+    
+    Schema Name:	eFormContract20030722				 
+    Version:        		1.2
+    Version Created:	22 July 2003
+    Change:			A testing problem with using namespace. Remove xmlns="http://www1.acc.co.nz/namespace"  reference from xsd schema.
+
+    Schema Name:	mfpFormContract20030901			 
+    Version:        		1.3
+    Version Created:	01 September 2003
+    Change:			Renamed as a difference now exists between eSchedule and mfpSchedule
+    					The problems of 22 July with namespace were resolved but did not solve all problems very cleanly. 
+    					To this end, a review of namespace usage was investigated and a solution developed.
+    					The solution changes the way in which namespaces are addressed internally and externally and makes it much tidier.
+    					The structure of the library has also changed to bring all directories in at the same structure level to accommodate type libraries.
+    					The contract_acc_identifier in now part of datatypes. A data type will need to reference the data type namespace
+    					ie. xmlns:xmldt="http://xmlschema.acc.co.nz/"
+
+    Schema Name:	mfpFormContract20030908			 
+    Version:        		1.4
+    Version Created:	08 September 2003
+    Change:			The mfpFormContract was created on 20030901 as patterns were required on contract_acc_identifier. 
+   				 	The datatype namespace was changed from xmlns:xmldt to xmlns:accdt as XML Spy objects to using xml as part of the name so it was 						changed to acc. It treats xml as a reserved word.
+
+
+    
+-->
+<xsd:schema xmlns:accdt="http://xmlschema.acc.co.nz/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../type/ACCDataType.xsd"/>
+	<xsd:element name="mfpFormContract">
+		<xsd:annotation>
+			<xsd:documentation>The eForm contract details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="contract_acc_identifier" type="ContractACCIdentifier">
+					<xsd:annotation>
+						<xsd:documentation>The contract acc identifier has been defined against a schedule. The real relationship is between a service line service item code and a contract item.  Format A8</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

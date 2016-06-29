@@ -1,0 +1,1 @@
+The MFP schema (schema.eSchedule folder) is in this package for reference purposes only. It is not used by this application at all.

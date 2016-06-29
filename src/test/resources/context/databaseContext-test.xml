@@ -1,0 +1,14 @@
+<!-- Context File for all spring Database configuration -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="egatewayDatasource" class="nz.co.acc.myacc.services.test.util.mock.MockDataSource" />
+
+    <bean id=" transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="egatewayDatasource"/>
+    </bean>
+</beans>

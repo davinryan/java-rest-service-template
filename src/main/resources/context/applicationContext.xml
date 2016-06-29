@@ -1,0 +1,45 @@
+<!-- Main spring application context -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+    <bean id="logServiceCallWithMDC" class="nz.co.acc.myacc.common.logging.LogServiceCallWithMDCAspect"/>
+
+    <bean id="jsonMapper"
+          class="nz.co.acc.myacc.services.invoicing.util.JsonObjectMapper">
+    </bean>
+
+    <bean id="oracleXmlHandler"
+          class="org.springframework.data.jdbc.support.oracle.OracleXmlHandler"/>
+
+    <bean id="xmlMapper"
+          class="nz.co.acc.myacc.services.invoicing.util.XmlObjectMapper">
+    </bean>
+
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager">
+            <bean class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+                <property name="configLocation" value="classpath:ehcache.xml"/>
+                <property name="shared" value="true"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- Inject all property files here. -->
+    <bean name="propertyPlaceHolderConfigurator"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:swagger.properties</value>
+                <value>classpath:xslt.properties</value>
+                <value>classpath:jms.properties</value>
+            </list>
+        </property>
+    </bean>
+</beans>

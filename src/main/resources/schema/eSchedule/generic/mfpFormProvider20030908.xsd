@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by David Milliner (ACC) -->
+<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by David Milliner (Business Technology) -->
+<!--
+    Name:              eForm_Provider_SubSchema
+    Description:     This XML defines the provider details for an eForm XML messages. 
+    				    			
+    Schema Name:	eFormProvider				 
+    Version:        		1.0
+    Version Created:	9 August 2002
+    
+    Schema Name:	eFormProvider20030722				 
+    Version:        		1.2
+    Version Created:	22 July 2003
+    Change:			A testing problem with using namespace. Remove xmlns="http://www1.acc.co.nz/namespace"  reference from xsd schema.
+
+    Schema Name:	mfpFormProvider20030901				 
+    Version:        		1.3
+    Version Created:	01 September 2003
+    Change:			Renamed as a difference now exists between eSchedule and mfpSchedule.
+    					The problems of 22 July with namespace were resolved but did not solve all problems very cleanly. 
+    					To this end, a review of namespace usage was investigated and a solution developed.
+    					The solution changes the way in which namespaces are addressed internally and externally and makes it much tidier.
+    					The structure of the library has also changed to bring all directories in at the same structure level to accommodate type libraries.
+					The provider_acc_identifier in now part of datatypes. A data type will need to reference the data type namespace
+					ie. xmlns:xmldt="http://xmlschema.acc.co.nz/"
+
+    Schema Name:	mfpFormProvider20030908				 
+    Version:        		1.4
+    Version Created:	08 September 2003
+    Change:			The mfpFormProvider was created on 20030901 as patterns were required on provider_acc_identifier. The datatype namespace was 						changed from xmlns:xmldt to xmlns:accdt as XML Spy objects to using xml as part of the name so it was changed to acc. It treats xml as a 					reserved word.					
+
+    
+-->
+<xsd:schema xmlns:accdt="http://xmlschema.acc.co.nz/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../type/ACCDataType.xsd"/>
+	<xsd:element name="mfpFormProvider">
+		<xsd:annotation>
+			<xsd:documentation>The eForm schedule line provider details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="provider_acc_identifier" type="ProviderACCIdentifier" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The standard ACC identifier of the provider  Format VA8</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="provider_surname" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The surname of the provider  Format VA50</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="provider_given_names" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>The first given names of the provider  Format VA50</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

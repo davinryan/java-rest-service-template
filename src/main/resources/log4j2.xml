@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %X{cid}%X{type}:%logger{1} : %msg%n"/>
+        </Console>
+
+        <RollingFile name="Portlet"
+                     fileName="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-portlet.log"
+                     filePattern="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-portlet-%d{MM-dd-yyyy}-%i.log.gz"
+                     immediateFlush="true"
+                     append="true">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %X{cid}%X{type}:%logger{1} : %msg%n</Pattern>
+            </PatternLayout>
+            <policies>
+                <SizeBasedTriggeringPolicy size="20 MB"/>
+            </policies>
+            <DefaultRolloverStrategy max="10"/>
+            <MarkerFilter marker="PORTLET" onMatch="ACCEPT"/>
+        </RollingFile>
+
+        <RollingFile name="Service"
+                     fileName="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-service.log"
+                     filePattern="/opt/appsrv/profiles/node/logs/egateway/provider/provider-invoicing-service-%d{MM-dd-yyyy}-%i.log.gz"
+                     immediateFlush="true"
+                     append="true">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %X{cid}%X{type}:%logger{1} : %msg%n</Pattern>
+            </PatternLayout>
+            <policies>
+                <SizeBasedTriggeringPolicy size="20 MB"/>
+            </policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Service"/>
+            <AppenderRef ref="Portlet"/>
+        </Root>
+    </Loggers>
+</Configuration>

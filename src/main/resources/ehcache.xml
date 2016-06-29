@@ -1,0 +1,103 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false"
+         monitoring="autodetect"
+         dynamicConfig="true">
+
+    <cache name="healthCheckCache"
+           maxEntriesLocalHeap="1"
+           eternal="false"
+           diskSpoolBufferSizeMB="1"
+           timeToIdleSeconds="15"
+           timeToLiveSeconds="15"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+    <cache name="validVendorIdCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="900"
+           timeToLiveSeconds="900"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+    <cache name="vendorNameCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="900"
+           timeToLiveSeconds="900"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+    <cache name="validContractNoCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="86400"
+           timeToLiveSeconds="86400"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+    
+    <cache name="validServiceCodeCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="86400"
+           timeToLiveSeconds="86400"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+    <cache name="validProviderIdCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="900"
+           timeToLiveSeconds="900"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+    <cache name="organisationNameCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="86400"
+           timeToLiveSeconds="86400"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+    <cache name="validClaimNumberCache"
+           maxEntriesLocalHeap="500000"
+           eternal="false"
+           diskSpoolBufferSizeMB="5"
+           timeToIdleSeconds="86400"
+           timeToLiveSeconds="86400"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <pinning store="inCache" />
+        <persistence strategy="none"/>
+    </cache>
+
+</ehcache>

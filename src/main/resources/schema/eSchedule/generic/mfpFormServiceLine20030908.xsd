@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Name:              eForm_Service_Line_SubSchema
+    Description:     This XML defines the service line details for an eForm XML messages. 
+    				    			
+    Schema Name:	eFormServiceLine				 
+    Version:        		1.0
+    Version Created:	9 August 2002
+    
+    Schema Name:	eFormServiceLine20030508				 
+    Version:        		1.1
+    Version Created:	8 May 2003 					
+    Change:			eForm is has been reviewed and a number of changes are required for clarity and  to align with mfpUptake requirements.
+    					The maxOccurs has been changed from 1:unbounded to 1:5.
+					
+    Schema Name:	eFormServiceLine20030722				 
+    Version:        		1.2
+    Version Created:	22 July 2003
+    Change:			A testing problem with using namespace. Remove xmlns="http://www1.acc.co.nz/namespace"  reference from xsd schema.
+
+    Schema Name:	eFormServiceLine20030901				 
+    Version:        		1.3
+    Version Created:	01 September 2003
+    Change:			Renamed as a difference now exists between eSchedule and mfpSchedule.
+    					The problems of 22 July with namespace were resolved but did not solve all problems very cleanly. 
+    					To this end, a review of namespace usage was investigated and a solution developed.
+    					The solution changes the way in which namespaces are addressed internally and externally and makes it much tidier.
+    					The structure of the library has also changed to bring all directories in at the same structure level to accommodate type libraries.
+					The service_item_code in now part of datatypes. A data type will need to reference the data type namespace
+					ie. xmlns:xmldt="http://xmlschema.acc.co.nz/"
+
+    Schema Name:	eFormServiceLine20030908				 
+    Version:        		1.4
+    Version Created:	08 September 2003
+    Change:			The mfpFormServiceLine was created on 20030901 as patterns were required on service_item_code. The datatype namespace was 						changed from xmlns:xmldt to xmlns:accdt as XML Spy objects to using xml as part of the name so it was changed to acc. It treats xml as a 					reserved word.					
+
+    
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:accdt="http://xmlschema.acc.co.nz/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../type/ACCDataType.xsd"/>
+	<xsd:element name="mfpFormServiceLine">
+		<xsd:annotation>
+			<xsd:documentation>The eForm schedule line service line details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="5">
+				<xsd:annotation>
+					<xsd:documentation>Each service line must have at least one service item code defined but has the limitation of only being able to define a maximum of 5 service item codes for a service line.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="service_item_code" type="MFPServiceItemCode">
+					<xsd:annotation>
+						<xsd:documentation>The identification of a service provided as all or part of the treatment.  Format  A10.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

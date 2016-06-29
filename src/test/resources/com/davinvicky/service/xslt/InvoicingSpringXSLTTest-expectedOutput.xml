@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MFPSchedule
+        xsi:schemaLocation="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908 http://xmlschema-dev.ds.acc.co.nz/claimmanagement/mfpSchedule20030908.xsd"
+        xmlns="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ACCStandardHeader/>
+    <MessageInfo>
+        <eFormDocument>
+            <document_reference/>
+            <ns0:document_date xmlns:ns0="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">2016-04-28</ns0:document_date>
+            <ns1:document_time xmlns:ns1="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">17:13:32</ns1:document_time>
+            <document_source_app_version>Sexy Provider MFP Schedule application</document_source_app_version>
+        </eFormDocument>
+        <document_gateway>E</document_gateway>
+    </MessageInfo>
+    <MFPVendor>
+        <mfpFormVendor>
+            <vendor_name>AIRNZ Vendor Name</vendor_name>
+            <vendor_acc_identifier>AIRNZ</vendor_acc_identifier>
+            <vendor_gst_number/>
+            <vendor_phone_number/>
+        </mfpFormVendor>
+        <Schedule>
+            <ScheduleHeader>
+                <mfpFormSchedule>
+                    <schedule_number>ACC567816</schedule_number>
+                    <provider_signed_date>2016-04-28</provider_signed_date>
+                    <lines_include_gst>Y</lines_include_gst>
+                    <schedule_comment>Additional Comments</schedule_comment>
+                </mfpFormSchedule>
+            </ScheduleHeader>
+            <ScheduleProvider>
+                <mfpFormProvider>
+                    <provider_acc_identifier>PROVIDER</provider_acc_identifier>
+                    <provider_surname/>
+                    <provider_given_names/>
+                </mfpFormProvider>
+                <ScheduleClaim>
+                    <medical_fees_number>AB12343</medical_fees_number>
+                    <approval_reference_number/>
+                    <ns1:accident_date xmlns:ns1="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">2016-04-21</ns1:accident_date>
+                    <eFormClaimant>
+                        <national_health_index>ABC2333</national_health_index>
+                        <claimant_first_name>DAVIN</claimant_first_name>
+                        <claimant_surname>RYAN</claimant_surname>
+                        <claimant_date_of_birth>2016-04-21</claimant_date_of_birth>
+                    </eFormClaimant>
+                    <ScheduleLine>
+                        <ns2:mfpFormContract xmlns:ns2="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">
+                            <ns3:contract_acc_identifier
+                                    xmlns:ns3="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">AB1234</ns3:contract_acc_identifier>
+                        </ns2:mfpFormContract>
+                        <eFormScheduleLine>
+                            <schedule_line_number>1</schedule_line_number>
+                            <service_date>2016-04-21T00:00:00+1200</service_date>
+                            <facility_code>CODE</facility_code>
+                            <loading_code/>
+                            <claimed_total_amount>234.00</claimed_total_amount>
+                            <ns4:claimed_hours
+                                    xmlns:ns4="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">12</ns4:claimed_hours>
+                            <ns5:claimed_minutes
+                                    xmlns:ns5="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">45</ns5:claimed_minutes>
+                            <ns6:claimed_distance_travelled
+                                    xmlns:ns6="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">55</ns6:claimed_distance_travelled>
+                            <ns7:claimed_units
+                                    xmlns:ns7="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">34.20</ns7:claimed_units>
+                            <schedule_line_comment>Service Comments</schedule_line_comment>
+                        </eFormScheduleLine>
+                        <mfpFormServiceLine>
+                            <service_item_code>SERVICE1</service_item_code>
+                        </mfpFormServiceLine>
+                    </ScheduleLine>
+                </ScheduleClaim>
+            </ScheduleProvider>
+            <ScheduleProvider>
+                <mfpFormProvider>
+                    <provider_acc_identifier>PROVIDER2</provider_acc_identifier>
+                    <provider_surname/>
+                    <provider_given_names/>
+                </mfpFormProvider>
+                <ScheduleClaim>
+                    <medical_fees_number>AB12343</medical_fees_number>
+                    <approval_reference_number/>
+                    <ns8:accident_date xmlns:ns8="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">2016-04-21</ns8:accident_date>
+                    <eFormClaimant>
+                        <national_health_index>ABC2333</national_health_index>
+                        <claimant_first_name>DAVIN</claimant_first_name>
+                        <claimant_surname>RYAN</claimant_surname>
+                        <claimant_date_of_birth>2016-04-21</claimant_date_of_birth>
+                    </eFormClaimant>
+                    <ScheduleLine>
+                        <ns9:mfpFormContract xmlns:ns9="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">
+                            <ns10:contract_acc_identifier
+                                    xmlns:ns10="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">AB1234</ns10:contract_acc_identifier>
+                        </ns9:mfpFormContract>
+                        <eFormScheduleLine>
+                            <schedule_line_number>2</schedule_line_number>
+                            <service_date>2016-04-21T00:00:00+1200</service_date>
+                            <facility_code>CODE2</facility_code>
+                            <loading_code/>
+                            <claimed_total_amount>2345.00</claimed_total_amount>
+                            <ns11:claimed_hours
+                                    xmlns:ns11="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">24</ns11:claimed_hours>
+                            <ns12:claimed_minutes
+                                    xmlns:ns12="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">90</ns12:claimed_minutes>
+                            <ns13:claimed_distance_travelled
+                                    xmlns:ns13="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">110</ns13:claimed_distance_travelled>
+                            <ns14:claimed_units
+                                    xmlns:ns14="http://xmlschema.acc.co.nz/claimmanagement/mfpSchedule20030908">68.40</ns14:claimed_units>
+                            <schedule_line_comment>Service Comments</schedule_line_comment>
+                        </eFormScheduleLine>
+                        <mfpFormServiceLine>
+                            <service_item_code>SERVICE1</service_item_code>
+                            <service_item_code>SERVICE2</service_item_code>
+                        </mfpFormServiceLine>
+                    </ScheduleLine>
+                </ScheduleClaim>
+            </ScheduleProvider>
+            <ScheduleTrailer>
+                <number_of_schedule_lines>2</number_of_schedule_lines>
+                <schedule_claimed_amount>2579.00</schedule_claimed_amount>
+            </ScheduleTrailer>
+        </Schedule>
+    </MFPVendor>
+    <ACCStandardTrailer>
+        <end_of_run_time>2016-05-31T17:06:34+1200</end_of_run_time>
+        <end_of_run_description>End of Job</end_of_run_description>
+    </ACCStandardTrailer>
+</MFPSchedule>

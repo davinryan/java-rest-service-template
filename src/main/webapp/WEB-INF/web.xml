@@ -8,7 +8,7 @@
     Refer to Logging com.davinvicky.common.service.JndiUtils.jndiLookup.LoggingInitialiser -->
     <context-param>
         <param-name>serviceName</param-name>
-        <param-value>providerInvoicingService</param-value>
+        <param-value>serviceTemplate</param-value>
     </context-param>
 
     <filter>
@@ -22,7 +22,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>LoggingInitialiser</listener-class>
+        <listener-class>com.davinvicky.common.logging.LoggingInitialiser</listener-class>
     </listener>
 
     <servlet>

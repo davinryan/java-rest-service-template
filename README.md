@@ -9,50 +9,50 @@ If you want to run this application in Tomcat EE then do the following:
 ...
     <!-- Whether to run application in debug mode or not -->
     <Environment
-            name="providerInvoicingService.debug"
+            name="serviceTemplate.debug"
             value="true"
             type="java.lang.String"
             override="false"/>
 
     <!-- Whether to stop redacted messages getting logged so you can all data from the user. -->
     <Environment
-            name="providerInvoicingService.disableLogRedactedMessages"
+            name="serviceTemplate.disableLogRedactedMessages"
             value="true"
             type="java.lang.String"
             override="false"/>
          
     <Resource
-            name="jdbc/egateway"
+            name="jdbc/datasource"
             auth="Container"
             type="javax.sql.DataSource"
             driverClassName="oracle.jdbc.OracleDriver"
             url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-            username="EGATEWAY_OWNER"
-            password="password"
+            username="CHANGE_ME"
+            password="CHANGE_ME"
             maxActive="20"
             maxIdle="10"
             maxWait="-1"/>
 
     <Resource
             auth="Container"
-            name="jms/MFPQueueConnectionFactory"
+            name="jms/QueueConnectionFactory"
             type="com.ibm.mq.jms.MQQueueConnectionFactory"
-            description="MFP MQ Connection Factory"
+            description="JMS Connection Factory"
             factory="com.ibm.mq.jms.MQQueueConnectionFactoryFactory"
-            HOST="imana"
-            PORT="12111"
-            CHAN="MFPT.21.01"
-            QMGR="MFPT.21"
+            HOST="CHANGE ME"
+            PORT="CHANGE ME"
+            CHAN="CHANGE ME"
+            QMGR="CHANGE ME"
             TRAN="1"/>
 
     <Resource
             auth="Container"
-            name="jms/EFM_MFP.eSchedule.Submit"
+            name="jms/JMSQueue"
             type="com.ibm.mq.jms.MQQueue"
             factory="com.ibm.mq.jms.MQQueueFactory"
-            description="MFP MQ JMS queue"
-            QU="EFM_MFP.eSchedule.Errors"
-            QMGR="MFPT.21"/>
+            description="JMS queue"
+            QU="CHANGE ME"
+            QMGR="CHANGE ME"/>
 ... 
 </Context>
 ```

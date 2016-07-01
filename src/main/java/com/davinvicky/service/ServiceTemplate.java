@@ -45,7 +45,7 @@ public class ServiceTemplate {
     private static final String INFO = "info";
 
     @Autowired
-    private JDBCDAO egatewayDao;
+    private JDBCDAO jdbcdao;
 
     @Autowired
     private XSLTTransformer XSLTTransformer;
@@ -59,7 +59,7 @@ public class ServiceTemplate {
     private final Boolean disableLogRedactedMessages;
 
     public ServiceTemplate() {
-        disableLogRedactedMessages = Boolean.parseBoolean(new JeeUtils().jndiLookup("disableLogRedactedMessages", "false"));
+        disableLogRedactedMessages = Boolean.parseBoolean(new JeeUtils().jndiLookup("serviceTemplate.disableLogRedactedMessages", "false"));
     }
 
     /**
@@ -87,7 +87,7 @@ public class ServiceTemplate {
     @Cacheable(value = "healthCheckCache", key = "'healthCheck'") // Cache to prevent DOS attacks on this method as it is expensive.
     @ResponseBody
     public String healthCheck() throws JMSException, DatabaseException, UnauthorisedAccessException {
-        egatewayDao.healthCheck();
+        jdbcdao.healthCheck();
         JMSDao.healthCheck();
         return version;
     }
@@ -102,7 +102,7 @@ public class ServiceTemplate {
     @ResponseBody
     @LogServiceCallWithMDC
     public Response validateProviderId(@Valid @RequestBody ValidateProviderRequest request) throws DatabaseException {
-        ValidateProviderIdPayload payload = egatewayDao.validateProviderId(request.getProviderId());
+        ValidateProviderIdPayload payload = jdbcdao.validateProviderId(request.getProviderId());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new ValidateProviderIdPayload(true)); //NOSONAR
     }
@@ -123,7 +123,7 @@ public class ServiceTemplate {
     @ResponseBody
     @LogServiceCallWithMDC
     public Response validateContractNumber(@Valid @RequestBody ValidateContractNumberRequest request) throws DatabaseException {
-        ValidateContractNumberPayload payload = egatewayDao.validateContractNumber(request.getContractNumber());
+        ValidateContractNumberPayload payload = jdbcdao.validateContractNumber(request.getContractNumber());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new ValidateProviderIdPayload(true)); //NOSONAR
     }
@@ -138,7 +138,7 @@ public class ServiceTemplate {
     @ResponseBody
     @LogServiceCallWithMDC
     public Response validateClaimNumber(@Valid @RequestBody ValidateClaimNumberRequest request) throws DatabaseException {
-        ValidateClaimNumberPayload payload = egatewayDao.validateClaimNumber(request.getClaimNumber());
+        ValidateClaimNumberPayload payload = jdbcdao.validateClaimNumber(request.getClaimNumber());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new ValidateClaimNumberPayload(true)); //NOSONAR
     }
@@ -153,7 +153,7 @@ public class ServiceTemplate {
     @ResponseBody
     @LogServiceCallWithMDC
     public Response validateServiceCode(@Valid @RequestBody ValidateServiceCodeRequest request) throws DatabaseException {
-        ValidateServiceCodePayload payload = egatewayDao.validateServiceCode(request.getServiceCode(), request.getServiceDate(), request.getContractNumber());
+        ValidateServiceCodePayload payload = jdbcdao.validateServiceCode(request.getServiceCode(), request.getServiceDate(), request.getContractNumber());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new ValidateServiceCodePayload(true)); //NOSONAR
     }
@@ -168,7 +168,7 @@ public class ServiceTemplate {
     @ResponseBody
     @LogServiceCallWithMDC
     public Response getInvoiceNumber(@Valid @RequestBody GetInvoiceNumberRequest request) throws DatabaseException { //NOSONAR request is used by LogServiceCallWithMDC
-        InvoiceNumberPayload payload = new InvoiceNumberPayload(egatewayDao.getInvoiceNumber());
+        InvoiceNumberPayload payload = new InvoiceNumberPayload(jdbcdao.getInvoiceNumber());
         payload.setCurrentDate(new LocalDate());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new InvoiceNumberPayload("abc123"));//NOSONAR
@@ -184,7 +184,7 @@ public class ServiceTemplate {
     @ResponseBody
     @LogServiceCallWithMDC
     public Response validateVendorId(@Valid @RequestBody ValidateVendorRequest request) throws DatabaseException {
-        ValidateVendorIdPayload payload = egatewayDao.validateVendorId(request.getVendorId(), request.getOrganisationId());
+        ValidateVendorIdPayload payload = jdbcdao.validateVendorId(request.getVendorId(), request.getOrganisationId());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new ValidateVendorIdPayload(true, true)); //NOSONAR
     }
@@ -204,7 +204,7 @@ public class ServiceTemplate {
     @LogServiceCallWithMDC
     @Deprecated
     public Response validateVendorWithOrgName(@Valid @RequestBody ValidateVendorWithOrgNameRequest request) throws DatabaseException {
-        ValidateVendorIdPayload payload = egatewayDao.validateVendorIdWithOrgName(request.getVendorId(), request.getOrganisationName());
+        ValidateVendorIdPayload payload = jdbcdao.validateVendorIdWithOrgName(request.getVendorId(), request.getOrganisationName());
         return new SuccessResponse(payload);
 //        return new SuccessResponse(new ValidateVendorIdPayload(true, true)); //NOSONAR
     }
@@ -226,7 +226,7 @@ public class ServiceTemplate {
         prepopulateDerivedFieldsForMFP(invoice);
 
         // Persist new schedule to database
-        egatewayDao.saveInvoiceRequest(invoice);
+        jdbcdao.saveInvoiceRequest(invoice);
 
         // Generate eSchedule
         String newMFPSchedule = XSLTTransformer.generateMFPSchedule(invoice);
@@ -235,7 +235,7 @@ public class ServiceTemplate {
         JMSDao.send(newMFPSchedule);
 
         // Log invoice to the command line
-        logRedactedInvoice(invoice);
+        logRedactedObj(invoice);
 
         return new SuccessResponse(new SubmitInvoicePayload(invoice.getInvoiceNumber()));
     }
@@ -249,11 +249,11 @@ public class ServiceTemplate {
     private void prepopulateDerivedFieldsForMFP(CreateInvoiceFormRequest invoice) throws DatabaseException {
         // handle missing vendor id
         if (invoice != null && invoice.getVendorName() == null) {
-            invoice.setVendorName(egatewayDao.getVendorName(invoice.getVendorId()));
+            invoice.setVendorName(jdbcdao.getVendorName(invoice.getVendorId()));
         }
     }
 
-    private void logRedactedInvoice(@Valid @RequestBody CreateInvoiceFormRequest invoice) {
+    private void logRedactedObj(@Valid @RequestBody CreateInvoiceFormRequest invoice) {
         CreateInvoiceFormRequest invoiceToLog = invoice;
         if (!disableLogRedactedMessages) {
             invoiceToLog = RedactUtil.redactObject(invoice);

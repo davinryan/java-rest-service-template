@@ -1,10 +1,10 @@
-package nz.co.acc.myacc.services.invoicing.domain.request;
+package com.davinvicky.service.domain.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import nz.co.acc.myacc.common.validation.Field;
-import nz.co.acc.myacc.common.validation.OnlyZeroOrOneOfTheFollowingFields;
+import com.davinvicky.common.validation.Field;
+import com.davinvicky.common.validation.OnlyZeroOrOneOfTheFollowingFields;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.DecimalMax;

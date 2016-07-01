@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing.dao;
+package com.davinvicky.service.dao;
 
 /**
  * Created by ryanda on 19/04/2016.

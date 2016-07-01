@@ -1,8 +1,8 @@
-package nz.co.acc.myacc.services.invoicing.domain.request;
+package com.davinvicky.service.domain.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import nz.co.acc.myacc.common.domain.request.Request;
+import com.davinvicky.common.domain.request.Request;
 
 @ApiModel(value = "When a client application wants to tell the server about an event so that it can be picked up by" +
         " splunk then this object will capture all the relevant information of that event.")

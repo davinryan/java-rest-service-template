@@ -1,10 +1,10 @@
-package nz.co.acc.myacc.services.invoicing.util;
+package com.davinvicky.service.util;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import nz.co.acc.myacc.services.invoicing.util.converters.*;
+import com.davinvicky.service.util.converters.*;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;

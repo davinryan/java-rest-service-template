@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing;
+package com.davinvicky.service;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;

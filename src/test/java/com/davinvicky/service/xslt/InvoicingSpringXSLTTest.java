@@ -1,7 +1,8 @@
-package nz.co.acc.myacc.services.invoicing.xslt;
+package com.davinvicky.service.xslt;
 
+import com.davinvicky.service.xslt.XSLTTransformer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nz.co.acc.myacc.services.invoicing.domain.request.CreateInvoiceFormRequest;
+import com.davinvicky.service.domain.request.CreateInvoiceFormRequest;
 import org.apache.commons.io.IOUtils;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -24,7 +25,7 @@ import static org.junit.Assert.assertThat;
 public class InvoicingSpringXSLTTest {
 
     @Autowired
-    private InvoicingXSLT invoicingXSLT;
+    private XSLTTransformer invoicingXSLT;
 
     @Autowired
     private ObjectMapper jsonMapper;

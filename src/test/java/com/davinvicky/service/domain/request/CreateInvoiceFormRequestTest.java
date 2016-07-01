@@ -1,17 +1,17 @@
-package nz.co.acc.myacc.services.invoicing.domain.request;
+package com.davinvicky.service.domain.request;
 
-import nz.co.acc.myacc.services.test.util.builders.CreateInvoiceFormBuilder;
+import com.davinvicky.service.test.util.builders.CreateInvoiceFormBuilder;
 import org.junit.Test;
 
 import java.util.Collection;
 
-import static nz.co.acc.myacc.services.test.util.TextGenerator.generateAlphaText;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.AnnotationValidationUtils.testFieldCannotBeBlank;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.AnnotationValidationUtils.validate;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.ViolationType.*;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.matcher.AnnotationValidationMatchers.hasNotNullViolationForField;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.matcher.AnnotationValidationMatchers.hasPatternViolationForField;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.matcher.AnnotationValidationMatchers.hasSizeViolationForField;
+import static com.davinvicky.service.test.util.TextGenerator.generateAlphaText;
+import static com.davinvicky.service.test.util.validation.annotation.AnnotationValidationUtils.testFieldCannotBeBlank;
+import static com.davinvicky.service.test.util.validation.annotation.AnnotationValidationUtils.validate;
+import static com.davinvicky.service.test.util.validation.annotation.ViolationType.*;
+import static com.davinvicky.service.test.util.validation.annotation.matcher.AnnotationValidationMatchers.hasNotNullViolationForField;
+import static com.davinvicky.service.test.util.validation.annotation.matcher.AnnotationValidationMatchers.hasPatternViolationForField;
+import static com.davinvicky.service.test.util.validation.annotation.matcher.AnnotationValidationMatchers.hasSizeViolationForField;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

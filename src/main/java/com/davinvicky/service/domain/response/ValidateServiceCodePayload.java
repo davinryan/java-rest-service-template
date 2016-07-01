@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing.domain.response;
+package com.davinvicky.service.domain.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

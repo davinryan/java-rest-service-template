@@ -1,7 +1,7 @@
-package nz.co.acc.myacc.services.invoicing.validation;
+package com.davinvicky.service.validation;
 
-import nz.co.acc.myacc.common.validation.Field;
-import nz.co.acc.myacc.common.validation.SumOfFieldsShouldNotExceedValueValidator;
+import com.davinvicky.common.validation.Field;
+import com.davinvicky.common.validation.SumOfFieldsShouldNotExceedValueValidator;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;

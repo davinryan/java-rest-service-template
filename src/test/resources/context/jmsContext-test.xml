@@ -5,16 +5,16 @@
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cachedMfpSubmitQueue" class="nz.co.acc.myacc.services.test.util.mock.MockQueue"/>
+    <bean id="cachedMfpSubmitQueue" class="com.davinvicky.service.test.util.mock.MockQueue"/>
 
     <bean id="cachedMfpJmsConnectionFactory" class="org.springframework.jms.connection.DelegatingConnectionFactory">
         <property name="targetConnectionFactory">
-            <bean id="mfpJmsConnectionFactoryFromServer" class="nz.co.acc.myacc.services.test.util.mock.MockQueueConnectionFactory"/>
+            <bean id="mfpJmsConnectionFactoryFromServer" class="com.davinvicky.service.test.util.mock.MockQueueConnectionFactory"/>
         </property>
         <property name="shouldStopConnections" value="true"/>
     </bean>
 
-    <bean id="jmsMessagePublisher" class="nz.co.acc.myacc.common.jms.JmsQueuePublisher">
+    <bean id="jmsMessagePublisher" class="com.davinvicky.common.jms.JmsQueuePublisher">
         <constructor-arg name="queueConnectionFactory" ref="cachedMfpJmsConnectionFactory"/>
         <constructor-arg name="dest" ref="cachedMfpSubmitQueue"/>
     </bean>

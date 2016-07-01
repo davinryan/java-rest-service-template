@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing.util.converters;
+package com.davinvicky.service.util.converters;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

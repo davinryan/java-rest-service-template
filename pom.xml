@@ -15,7 +15,7 @@
     </scm>
 
     <properties>
-        <spring.version>4.0.0.RELEASE</spring.version>
+        <spring.version>4.3.0.RELEASE</spring.version>
         <jackson.version>2.5.0</jackson.version>
         <project.api.root>api/service</project.api.root>
         <log4j2.version>2.3</log4j2.version>
@@ -23,41 +23,41 @@
 
     <dependencies>
         <!--MYACC core dependencies-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-domain</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-jee</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-reflection</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-logging</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-jms</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-exception</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>nz.co.acc.myacc.common</groupId>-->
-            <!--<artifactId>common-validation</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-domain</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-jee</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-reflection</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-logging</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-jms</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-exception</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.davinvicky.common</groupId>
+            <artifactId>common-validation</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
 
         <!--end MyACC core dependencies-->
 

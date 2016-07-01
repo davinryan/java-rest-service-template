@@ -1,26 +1,21 @@
-package nz.co.acc.myacc.services.invoicing.domain.request;
+package com.davinvicky.service.domain.request;
 
-import nz.co.acc.myacc.services.invoicing.dao.DatabaseException;
-import nz.co.acc.myacc.services.test.util.builders.CreateInvoiceFormBuilder;
-import nz.co.acc.myacc.services.test.util.builders.ServiceCodeBuilder;
-import nz.co.acc.myacc.services.test.util.builders.ServiceDetailsBuilder;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.Is;
-import org.junit.Ignore;
+import com.davinvicky.service.dao.DatabaseException;
+import com.davinvicky.service.test.util.builders.ServiceCodeBuilder;
+import com.davinvicky.service.test.util.builders.ServiceDetailsBuilder;
 import org.junit.Test;
 
-import javax.jms.JMSException;
 import javax.validation.ConstraintViolation;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static nz.co.acc.myacc.services.test.util.TextGenerator.generateAlphaText;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.AnnotationValidationUtils.testFieldCannotBeBlank;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.AnnotationValidationUtils.validate;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.ViolationType.*;
-import static nz.co.acc.myacc.services.test.util.validation.annotation.matcher.AnnotationValidationMatchers.*;
+import static com.davinvicky.service.test.util.TextGenerator.generateAlphaText;
+import static com.davinvicky.service.test.util.validation.annotation.AnnotationValidationUtils.testFieldCannotBeBlank;
+import static com.davinvicky.service.test.util.validation.annotation.AnnotationValidationUtils.validate;
+import static com.davinvicky.service.test.util.validation.annotation.ViolationType.*;
+import static com.davinvicky.service.test.util.validation.annotation.matcher.AnnotationValidationMatchers.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

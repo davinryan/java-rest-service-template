@@ -13,7 +13,7 @@
     <import resource="classpath:context/databaseContext-test.xml"/>
     <import resource="classpath:context/jmsContext-test.xml"/>
 
-    <context:component-scan base-package="nz.co.acc.myacc.services.invoicing"/>
+    <context:component-scan base-package="com.davinvicky.service"/>
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean

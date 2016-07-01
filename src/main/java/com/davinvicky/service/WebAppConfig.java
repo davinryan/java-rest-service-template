@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing;
+package com.davinvicky.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;

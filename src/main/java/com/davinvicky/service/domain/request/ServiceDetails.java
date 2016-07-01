@@ -1,12 +1,12 @@
-package nz.co.acc.myacc.services.invoicing.domain.request;
+package com.davinvicky.service.domain.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import nz.co.acc.myacc.common.logging.RedactWhenLogging;
-import nz.co.acc.myacc.common.validation.Field;
-import nz.co.acc.myacc.services.invoicing.validation.SumOfDistanceShouldNotExceedValue;
-import nz.co.acc.myacc.common.validation.SumOfTimeFieldsShouldNotExceedValue;
-import nz.co.acc.myacc.services.invoicing.validation.SumOfUnitsShouldNotExceedValue;
+import com.davinvicky.common.logging.RedactWhenLogging;
+import com.davinvicky.common.validation.Field;
+import com.davinvicky.service.validation.SumOfDistanceShouldNotExceedValue;
+import com.davinvicky.common.validation.SumOfTimeFieldsShouldNotExceedValue;
+import com.davinvicky.service.validation.SumOfUnitsShouldNotExceedValue;
 import org.joda.time.DateTime;
 
 import javax.validation.Valid;

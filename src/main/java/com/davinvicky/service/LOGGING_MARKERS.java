@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing;
+package com.davinvicky.service;
 
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;

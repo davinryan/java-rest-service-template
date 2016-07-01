@@ -1,4 +1,4 @@
-package nz.co.acc.myacc.services.invoicing.dao;
+package com.davinvicky.service.dao;
 
 /**
  * General exception for all database errors.

@@ -1,9 +1,9 @@
-package nz.co.acc.myacc.services.invoicing.util;
+package com.davinvicky.service.util;
 
-import nz.co.acc.myacc.common.exception.UnauthorisedAccessException;
-import nz.co.acc.myacc.services.invoicing.dao.DatabaseException;
-import nz.co.acc.myacc.common.domain.response.Response;
-import nz.co.acc.myacc.common.domain.response.SpringValidationFailureResponse;
+import com.davinvicky.common.exception.UnauthorisedAccessException;
+import com.davinvicky.service.dao.DatabaseException;
+import com.davinvicky.common.domain.response.Response;
+import com.davinvicky.common.domain.response.SpringValidationFailureResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

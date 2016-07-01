@@ -1,6 +1,6 @@
-package nz.co.acc.myacc.services.invoicing.dao;
+package com.davinvicky.service.dao;
 
-import nz.co.acc.myacc.common.jms.MessagePublisher;
+import com.davinvicky.common.jms.MessagePublisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import javax.jms.JMSException;
  * Main class for sending jms message to MQ queue for MFP.
  */
 @Component
-public class InvoicingMQMFPDao implements InvoicingMQDao {
+public class InvoicingMQMFPDao implements JMSDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InvoicingMQMFPDao.class.getName());
 

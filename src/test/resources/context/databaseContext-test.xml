@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="egatewayDatasource" class="nz.co.acc.myacc.services.test.util.mock.MockDataSource" />
+    <bean id="egatewayDatasource" class="com.davinvicky.service.test.util.mock.MockDataSource" />
 
     <bean id=" transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

@@ -1,12 +1,12 @@
-package nz.co.acc.myacc.services.invoicing.domain.request;
+package com.davinvicky.service.domain.request;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import nz.co.acc.myacc.common.domain.request.Request;
-import nz.co.acc.myacc.common.logging.RedactWhenLogging;
-import nz.co.acc.myacc.common.validation.Field;
-import nz.co.acc.myacc.services.invoicing.validation.SumOfFeesShouldNotExceedValue;
+import com.davinvicky.common.domain.request.Request;
+import com.davinvicky.common.logging.RedactWhenLogging;
+import com.davinvicky.common.validation.Field;
+import com.davinvicky.service.validation.SumOfFeesShouldNotExceedValue;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;

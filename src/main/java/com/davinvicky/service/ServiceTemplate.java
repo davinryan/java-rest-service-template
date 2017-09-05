@@ -31,15 +31,13 @@ import static com.davinvicky.common.logging.LogUtil.logDebugMsg;
 import static com.davinvicky.service.LOGGING_MARKERS.PORTLET;
 
 /**
- * Provider Invoicing REST Service.
+ * Invoicing REST Service.
  *
- * @author Stuart McKeown
- * @since 28/10/2015
  */
 
 @Controller
 @RequestMapping(value = "/")
-@Api(value = "/invoicing", description = "Provider Invoicing Service")
+@Api(value = "/main", description = "Main Service")
 public class ServiceTemplate {
 
     private static final String INFO = "info";
@@ -93,122 +91,18 @@ public class ServiceTemplate {
     }
 
     @RequestMapping(
-            value = "/validateProviderId",
+            value = "/validateSomeId",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
-            value = "Validates if a provider id is unique in a valid format.")
+            value = "Validates if a some id is unique in a valid format.")
     @ResponseBody
     @LogServiceCallWithMDC
-    public Response validateProviderId(@Valid @RequestBody ValidateProviderRequest request) throws DatabaseException {
+    public Response validateSomeId(@Valid @RequestBody ValidateProviderRequest request) throws DatabaseException {
         ValidateProviderIdPayload payload = jdbcdao.validateProviderId(request.getProviderId());
         return new SuccessResponse(payload);
-//        return new SuccessResponse(new ValidateProviderIdPayload(true)); //NOSONAR
     }
-
-//     Commented out for later use.
-//    private void logRequestResponse(@Valid @RequestBody Object request, Object payload) {
-//        LOGGER.info("Request: " + request);
-//        LOGGER.info("Response: " + payload);
-//    }
-
-    @RequestMapping(
-            value = "/validateContractNumber",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(
-            value = "Validates if a contractNo exists and is active.")
-    @ResponseBody
-    @LogServiceCallWithMDC
-    public Response validateContractNumber(@Valid @RequestBody ValidateContractNumberRequest request) throws DatabaseException {
-        ValidateContractNumberPayload payload = jdbcdao.validateContractNumber(request.getContractNumber());
-        return new SuccessResponse(payload);
-//        return new SuccessResponse(new ValidateProviderIdPayload(true)); //NOSONAR
-    }
-
-    @RequestMapping(
-            value = "/validateClaimNumber",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(
-            value = "Validates if a contractNo exists and is active.")
-    @ResponseBody
-    @LogServiceCallWithMDC
-    public Response validateClaimNumber(@Valid @RequestBody ValidateClaimNumberRequest request) throws DatabaseException {
-        ValidateClaimNumberPayload payload = jdbcdao.validateClaimNumber(request.getClaimNumber());
-        return new SuccessResponse(payload);
-//        return new SuccessResponse(new ValidateClaimNumberPayload(true)); //NOSONAR
-    }
-
-    @RequestMapping(
-            value = "/validateServiceCode",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(
-            value = "Validates if a service code is valid for specified service date and contractNo.")
-    @ResponseBody
-    @LogServiceCallWithMDC
-    public Response validateServiceCode(@Valid @RequestBody ValidateServiceCodeRequest request) throws DatabaseException {
-        ValidateServiceCodePayload payload = jdbcdao.validateServiceCode(request.getServiceCode(), request.getServiceDate(), request.getContractNumber());
-        return new SuccessResponse(payload);
-//        return new SuccessResponse(new ValidateServiceCodePayload(true)); //NOSONAR
-    }
-
-    @RequestMapping(
-            value = "/getInvoiceNumber",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(
-            value = "Requests a new invoice number from the database")
-    @ResponseBody
-    @LogServiceCallWithMDC
-    public Response getInvoiceNumber(@Valid @RequestBody GetInvoiceNumberRequest request) throws DatabaseException { //NOSONAR request is used by LogServiceCallWithMDC
-        InvoiceNumberPayload payload = new InvoiceNumberPayload(jdbcdao.getInvoiceNumber());
-        payload.setCurrentDate(new LocalDate());
-        return new SuccessResponse(payload);
-//        return new SuccessResponse(new InvoiceNumberPayload("abc123"));//NOSONAR
-    }
-
-    @RequestMapping(
-            value = "/validateVendorId",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(
-            value = "Validates if a vendor ID is unique in a valid format, and authorised for the Organisation using that certificate")
-    @ResponseBody
-    @LogServiceCallWithMDC
-    public Response validateVendorId(@Valid @RequestBody ValidateVendorRequest request) throws DatabaseException {
-        ValidateVendorIdPayload payload = jdbcdao.validateVendorId(request.getVendorId(), request.getOrganisationId());
-        return new SuccessResponse(payload);
-//        return new SuccessResponse(new ValidateVendorIdPayload(true, true)); //NOSONAR
-    }
-
-    /**
-     * @param request {@link ValidateVendorWithOrgNameRequest}
-     * @deprecated Please use validateVendorId as organisation names may not be unique.
-     */
-    @RequestMapping(
-            value = "/validateVendorIdWithOrgName",
-            method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(
-            value = "Validates if a vendor ID is unique in a valid format, and authorised for the Organisation using that certificate")
-    @ResponseBody
-    @LogServiceCallWithMDC
-    @Deprecated
-    public Response validateVendorWithOrgName(@Valid @RequestBody ValidateVendorWithOrgNameRequest request) throws DatabaseException {
-        ValidateVendorIdPayload payload = jdbcdao.validateVendorIdWithOrgName(request.getVendorId(), request.getOrganisationName());
-        return new SuccessResponse(payload);
-//        return new SuccessResponse(new ValidateVendorIdPayload(true, true)); //NOSONAR
-    }
-
 
     @RequestMapping(
             value = "/invoices",
@@ -219,7 +113,7 @@ public class ServiceTemplate {
             value = "Submit Provider Invoice")
     @ResponseBody
     @LogServiceCallWithMDC
-    public Response submitProviderInvoice(@Valid @RequestBody CreateInvoiceFormRequest invoice) throws JMSException, DatabaseException { //NOSONAR
+    public Response submitInvoice(@Valid @RequestBody CreateInvoiceFormRequest invoice) throws JMSException, DatabaseException { //NOSONAR
         logDebugMsg(LOGGER, "Incoming Create Invoice Request as JSON", invoice.toString());
 
         // Populate derived fields
@@ -228,38 +122,16 @@ public class ServiceTemplate {
         // Persist new schedule to database
         jdbcdao.saveInvoiceRequest(invoice);
 
-        // Generate eSchedule
-        String newMFPSchedule = XSLTTransformer.generateMFPSchedule(invoice);
+        // Generate xml
+        String xml = XSLTTransformer.generateMFPSchedule(invoice);
 
-        // Send eSchedule to MFP
-        JMSDao.send(newMFPSchedule);
+        // Send xml to mq
+        JMSDao.send(xml);
 
         // Log invoice to the command line
         logRedactedObj(invoice);
 
         return new SuccessResponse(new SubmitInvoicePayload(invoice.getInvoiceNumber()));
-    }
-
-    /**
-     * Massage and populate derived information for MFP. If MFP was written properly we wouldn't have to do this!!
-     *
-     * @param invoice {@link CreateInvoiceFormRequest} to process
-     * @throws DatabaseException when the database doesn't play ball.
-     */
-    private void prepopulateDerivedFieldsForMFP(CreateInvoiceFormRequest invoice) throws DatabaseException {
-        // handle missing vendor id
-        if (invoice != null && invoice.getVendorName() == null) {
-            invoice.setVendorName(jdbcdao.getVendorName(invoice.getVendorId()));
-        }
-    }
-
-    private void logRedactedObj(@Valid @RequestBody CreateInvoiceFormRequest invoice) {
-        CreateInvoiceFormRequest invoiceToLog = invoice;
-        if (!disableLogRedactedMessages) {
-            invoiceToLog = RedactUtil.redactObject(invoice);
-        }
-        String newRedactedMFPSchedule = XSLTTransformer.generateMFPSchedule(invoiceToLog);
-        LOGGER.info("Message contents: [\n" + newRedactedMFPSchedule + "]");
     }
 
     @RequestMapping(

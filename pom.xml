@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.davinvicky.service</groupId>
+    <groupId>com.davinryan.service</groupId>
     <artifactId>service-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>REST Service Template</name>

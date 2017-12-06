@@ -22,55 +22,25 @@
     </properties>
 
     <dependencies>
-        <!--MYACC core dependencies-->
+        <!--Core dependencies-->
         <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-domain</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-jee</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-reflection</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-logging</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-jms</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-exception</artifactId>
-            <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.davinvicky.common</groupId>
-            <artifactId>common-validation</artifactId>
+            <groupId>com.davinryan.common</groupId>
+            <artifactId>common-rest-service</artifactId>
             <version>1.1-SNAPSHOT</version>
         </dependency>
 
         <!--end MyACC core dependencies-->
 
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>oracle.xmlparserv2</groupId>
-            <artifactId>xmlparserv2</artifactId>
-            <version>11.2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.oracle</groupId>-->
+            <!--<artifactId>ojdbc6</artifactId>-->
+            <!--<version>11.2.0.1.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>oracle.xmlparserv2</groupId>-->
+            <!--<artifactId>xmlparserv2</artifactId>-->
+            <!--<version>11.2</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
@@ -105,12 +75,6 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.7.4</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.jms</groupId>
-            <artifactId>jms</artifactId>
-            <version>1.1</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.sf.ehcache</groupId>
@@ -210,17 +174,17 @@
             <artifactId>joda-convert</artifactId>
             <version>1.8</version>
         </dependency>
-        <dependency>
-            <groupId>oracle</groupId>
-            <artifactId>xdb</artifactId>
-            <version>11.1.1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ibm.websphere</groupId>
-            <artifactId>runtime</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>oracle</groupId>-->
+            <!--<artifactId>xdb</artifactId>-->
+            <!--<version>11.1.1.2.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.ibm.websphere</groupId>-->
+            <!--<artifactId>runtime</artifactId>-->
+            <!--<version>7.0</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -277,6 +241,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.6.6</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.jms</groupId>
+            <artifactId>jms-api</artifactId>
+            <version>RELEASE</version>
         </dependency>
     </dependencies>
     <build>

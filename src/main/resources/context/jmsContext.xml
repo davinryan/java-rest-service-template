@@ -11,21 +11,21 @@
     <jee:jndi-lookup id="cachedMfpSubmitQueue" jndi-name="${invoicing.jms.mfp.destination}" resource-ref="true"
                      cache="true"/>
 
-    <bean id="cachedMfpJmsConnectionFactory" class="org.springframework.jms.connection.DelegatingConnectionFactory">
+    <bean id="cachedJmsConnectionFactory" class="org.springframework.jms.connection.DelegatingConnectionFactory">
         <property name="targetConnectionFactory">
-            <jee:jndi-lookup id="mfpJmsConnectionFactoryFromServer" jndi-name="${invoicing.jms.mfp.connectionFactory}"
+            <jee:jndi-lookup id="jmsConnectionFactoryFromServer" jndi-name="${invoicing.jms.connectionFactory}"
                              resource-ref="true" cache="true"/>
         </property>
         <property name="shouldStopConnections" value="true"/>
     </bean>
 
-    <bean id="jmsMessagePublisher" class="com.davinvicky.common.jms.JmsQueuePublisher">
-        <constructor-arg name="queueConnectionFactory" ref="cachedMfpJmsConnectionFactory"/>
+    <bean id="jmsMessagePublisher" class="com.davinryan.common.restservice.jms.JmsQueuePublisher">
+        <constructor-arg name="queueConnectionFactory" ref="cachedJmsConnectionFactory"/>
         <constructor-arg name="dest" ref="cachedMfpSubmitQueue"/>
     </bean>
 
     <bean id="jmsTransactionManager"
           class="org.springframework.jms.connection.JmsTransactionManager">
-        <property name="connectionFactory" ref="cachedMfpJmsConnectionFactory"/>
+        <property name="connectionFactory" ref="cachedJmsConnectionFactory"/>
     </bean>
 </beans>

@@ -13,7 +13,7 @@
 
     <filter>
         <filter-name>corsFilter</filter-name>
-        <filter-class>com.davinvicky.service.CORSFilter</filter-class>
+        <filter-class>com.davinryan.service.CORSFilter</filter-class>
     </filter>
 
     <filter-mapping>
@@ -22,7 +22,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>com.davinvicky.common.logging.LoggingInitialiser</listener-class>
+        <listener-class>com.davinryan.common.restservice.logging.LoggingInitialiser</listener-class>
     </listener>
 
     <servlet>

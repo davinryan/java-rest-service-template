@@ -5,11 +5,11 @@
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cachedMfpSubmitQueue" class="com.davinvicky.service.test.util.mock.MockQueue"/>
+    <bean id="cachedMfpSubmitQueue" class="com.davinryan.service.test.util.mock.MockQueue"/>
 
     <bean id="cachedMfpJmsConnectionFactory" class="org.springframework.jms.connection.DelegatingConnectionFactory">
         <property name="targetConnectionFactory">
-            <bean id="mfpJmsConnectionFactoryFromServer" class="com.davinvicky.service.test.util.mock.MockQueueConnectionFactory"/>
+            <bean id="mfpJmsConnectionFactoryFromServer" class="com.davinryan.service.test.util.mock.MockQueueConnectionFactory"/>
         </property>
         <property name="shouldStopConnections" value="true"/>
     </bean>

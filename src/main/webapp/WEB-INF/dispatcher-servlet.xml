@@ -17,7 +17,7 @@
     <import resource="classpath:context/databaseContext.xml"/>
     <import resource="classpath:context/jmsContext.xml"/>
     
-    <context:component-scan base-package="com.davinvicky.service"/>
+    <context:component-scan base-package="com.davinryan.service"/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <mvc:annotation-driven>
         <mvc:message-converters>

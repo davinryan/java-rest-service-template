@@ -70,10 +70,10 @@ public class ServiceTemplate {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(
-            value = "Smoke test to check Provider Invoicing service is up")
+            value = "Smoke test to check service is up")
     @ResponseBody
     public Response applicationStart() throws JMSException, DatabaseException {
-        return new SuccessResponse("Hello from the Provider Invoicing Service.... No SERVICE LEFT BEHIND!!!!");
+        return new SuccessResponse("Hello from the Service.... No SERVICE LEFT BEHIND!!!!");
     }
 
     @RequestMapping(
@@ -81,7 +81,7 @@ public class ServiceTemplate {
             method = RequestMethod.GET,
             produces = MediaType.TEXT_PLAIN_VALUE)
     @ApiOperation(
-            value = "Status check to test whether Provider Invoicing service is up")
+            value = "Status check to test whether service is up")
     @Cacheable(value = "healthCheckCache", key = "'healthCheck'") // Cache to prevent DOS attacks on this method as it is expensive.
     @ResponseBody
     public String healthCheck() throws JMSException, DatabaseException {
